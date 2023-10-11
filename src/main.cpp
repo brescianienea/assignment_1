@@ -3,6 +3,7 @@
 #include "led_menager.h"
 #include "sleep_mode_utility.h"
 #include "button_manager.h"
+#include "game_over.h"
 
 #define TEN_SECONDS 10000
 #define THREE_SECONDS 3000
