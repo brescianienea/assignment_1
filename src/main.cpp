@@ -29,6 +29,7 @@ unsigned long sleepModeStartTime = millis();
 unsigned long T1;
 unsigned long T2;
 unsigned long T3;
+unsigned long points;
 /**
  * Player have 10s to start the game or the system go in deep sleep mode.
 */
@@ -63,6 +64,8 @@ void loop() {
     case NEWLEVEL:
         break;
     case GAMEOVER:
+        gameOver(points);
+        gameState = SETUP;
         break;
     default:
         break;
