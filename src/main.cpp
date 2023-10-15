@@ -7,6 +7,7 @@
 
 #define TEN_SECONDS 10000
 #define THREE_SECONDS 3000
+#define POTENTIOMETER A1
 GameState gameState = SETUP;
 
 /**
@@ -56,6 +57,7 @@ unsigned long T2;
 */
 unsigned long T3;
 unsigned long points;
+int difficulty;
 /**
  * Player have 10s to start the game or the system go in deep sleep mode.
 */
@@ -80,6 +82,7 @@ void loop() {
         switchGreenLeds(false);
         ledFading(RED_LED, true);
         basicTimer(TEN_SECONDS, sleepModeStartTime, sleepNowTrampoline, true);
+        difficulty = map(analogRead(POTENTIOMETER), 0, 1023, 0, 3);
         /* this initialization must bo done before changing state in MC */
         switchGreenLedsStartTime = millis();
         break;
